@@ -11,10 +11,10 @@
   <%= csrf_meta_tags %>
 
 
-	<%= render 'layouts/header' %>
+	
 
 
-
+	
 </head>
 <body>
 
@@ -22,11 +22,22 @@
 <%= render 'layouts/header' %>
 
 		<div class="container">
+
+
+		<% flash.each do |message_type, message| %>
+        	<div class="alert alert-<%= message_type %>"><%= message %></div>
+        <% end %>
+		
+
+
 		<%= yield %>
 
 
 
 		<%= render 'layouts/footer' %>
+		<div class="debug_dump">
+			<%= debug(params) if Rails.env.development? %>
+		</div>
 		</div>
 
 
