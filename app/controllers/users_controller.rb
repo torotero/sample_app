@@ -16,7 +16,7 @@ class UsersController < ApplicationController
     if @user.save
       # something todo
 
-
+      log_in @user
       flash[:success] = "Welcome to Sample App!"
       redirect_to @user
     else
