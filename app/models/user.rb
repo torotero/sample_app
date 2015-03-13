@@ -8,7 +8,10 @@ class User < ActiveRecord::Base
 	validates :email, presence: true, length: {maximum: 255}, format: {with: VALID_EMAIL_REGEX}, uniqueness: {case_sensitive: false}
 
 	has_secure_password
-	validates :password, length:{minimum: 6}
+	
+
+  ## buat update. password blank. 
+  validates :password, length: { minimum: 6 }, allow_blank: true
 
 
 
